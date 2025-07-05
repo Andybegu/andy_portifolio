@@ -1,24 +1,41 @@
 // src/components/Header.js
 
-import React from 'react'; // React is not strictly necessary to import in modern React if only using JSX, but it's a good habit.
-import './Header.css'; // We'll create this CSS file next
+import React, { useState } from 'react'; // <-- Import useState hook
+import './Header.css';
+import profile from '../assets/profile.jpg'; // <-- Import your profile picture
 
-// This is our functional component
 function Header() {
+  // State to manage the visibility of the mobile navigation
+  // isNavOpen will be true if the nav is open, false if closed
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  // Function to toggle the navigation state
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen); // Toggles between true and false
+  };
+
   return (
     <header className="header">
-      <h1>My Personal Website</h1>
-      <nav>
+     <div className="header-left-content"> {/* New container for profile pic and h1 */}
+        <img src={profile} alt="Profile" className="profile-pic" /> {/* Your new image */}
+        <h1>My Personal Website</h1>
+      </div>
+      <button className="menu-toggle" onClick={toggleNav}>
+        {/* You can use a simple text icon or an SVG here for now */}
+        &#9776; {/* Unicode for hamburger icon */}
+      </button>
+
+      {/* Navigation - its visibility will be controlled by CSS */}
+      <nav className={`main-nav ${isNavOpen ? 'nav-open' : ''}`}> {/* Add class based on state */}
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" onClick={toggleNav}>Home</a></li> {/* Close menu on click */}
+          <li><a href="#about" onClick={toggleNav}>About</a></li>
+          <li><a href="#portfolio" onClick={toggleNav}>Portfolio</a></li>
+          <li><a href="#contact" onClick={toggleNav}>Contact</a></li>
         </ul>
       </nav>
     </header>
   );
 }
 
-// We export the component so it can be imported and used in other files.
 export default Header;

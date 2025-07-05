@@ -1,14 +1,30 @@
 /* src/components/Header.css */
 
+/* --- Base styles (Desktop-first approach, these are for larger screens) --- */
 .header {
-  background-color: #282c34; /* Dark blue/grey */
-  padding: 10px;
+  background-color: #282c34;
+  padding: 20px;
   color: white;
-  text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: flex; /* Make the header a flex container */
-  justify-content: space-between; /* Distribute space between items (h1 and nav) */
-  align-items: center; /* Vertically align items in the center */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.header-left-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #61dafb;
 }
 
 .header h1 {
@@ -16,12 +32,23 @@
   font-size: 2.5em;
 }
 
-.header nav ul {
+.menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 5px 10px;
+  z-index: 20;
+}
+
+.main-nav ul {
   list-style: none;
-  padding-right: 100px;
-  margin: 15px 0 0 0;
-  display: flex; /* Use flexbox for horizontal navigation */
-  gap: 20px; /* Space between links */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
 }
 
 .header nav li a {
@@ -32,5 +59,120 @@
 }
 
 .header nav li a:hover {
-  color: #61dafb; /* React blue */
+  color: #61dafb;
+}
+
+/* --- MEDIA QUERIES FOR TABLET & SMALLER DESKTOPS (e.g., up to 768px wide) --- */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    justify-content: space-between; /* Keep content spaced, h1/pic left, toggle right */
+    padding: 15px 20px;
+  }
+
+  .header h1 {
+    font-size: 2.2em; /* Slightly smaller on tablets */
+  }
+
+  /* Make sure the left content behaves well */
+  .header-left-content {
+    flex-grow: 1; /* Allow it to take available space */
+    justify-content: flex-start; /* Keep content to the left */
+  }
+
+
+  .menu-toggle {
+    display: block; /* Show hamburger button on mobile/tablet */
+    /* Adjust position if needed, but relative to header's flex children */
+    position: static; /* Remove absolute positioning, let flexbox place it */
+    order: 2; /* Ensure it comes after header-left-content in flex order */
+    margin-left: auto; /* Push it to the right */
+  }
+
+  .main-nav {
+    display: none; /* Hidden by default on mobile/tablet */
+    width: 100%; /* Full width */
+    background-color: #333;
+    position: absolute; /* Still absolute to slide out */
+    top: 100%;
+    left: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    animation: fadeOut 0.3s forwards;
+    z-index: 1; /* Ensure it's below header but above general content */
+  }
+
+  .main-nav.nav-open {
+    display: flex; /* Show when open */
+    animation: fadeIn 0.3s forwards;
+  }
+
+  .main-nav ul {
+    flex-direction: column; /* Stack list items vertically */
+    width: 100%;
+    gap: 15px;
+  }
+
+  .main-nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-nav li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .main-nav li:last-child a {
+    border-bottom: none;
+  }
+}
+
+/* --- MEDIA QUERIES FOR SMALL MOBILE SCREENS (e.g., up to 480px wide) --- */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 15px; /* Reduce header padding on very small screens */
+    flex-direction: column; /* Stack h1/pic and toggle vertically on very small screens */
+    align-items: center; /* Center items when stacked */
+  }
+
+  .header-left-content {
+    width: 100%; /* Ensure it takes full width */
+    justify-content: center; /* Center content within this section */
+    margin-bottom: 10px; /* Space below h1/pic section */
+    gap: 10px; /* Reduce gap between pic and h1 */
+  }
+
+  .profile-pic {
+    width: 35px; /* Even smaller profile pic */
+    height: 35px;
+  }
+
+  .header h1 {
+    font-size: 1.8em; /* Further reduce font size for H1 */
+    text-align: center;
+  }
+
+  .menu-toggle {
+    position: static; /* Remove absolute positioning if it was still there, let it flow */
+    margin: 0; /* Remove auto margin */
+    order: unset; /* Remove specific order from flexbox */
+  }
+
+  /* The main-nav styles from 768px apply here unless overridden */
+}
+
+/* Keyframe animations (keep these) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
 }
