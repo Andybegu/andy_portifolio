@@ -3,6 +3,7 @@
 import React, { useState } from 'react'; // <-- Import useState hook
 import './Header.css';
 import profile from '../assets/profile.jpg'; // <-- Import your profile picture
+import Navbar from './Navbar';
 
 function Header() {
   // State to manage the visibility of the mobile navigation
@@ -26,14 +27,7 @@ function Header() {
       </button>
 
       {/* Navigation - its visibility will be controlled by CSS */}
-      <nav className={`main-nav ${isNavOpen ? 'nav-open' : ''}`}> {/* Add class based on state */}
-        <ul>
-          <li><a href="#home" onClick={toggleNav}>Home</a></li> {/* Close menu on click */}
-          <li><a href="#about" onClick={toggleNav}>About</a></li>
-          <li><a href="#portfolio" onClick={toggleNav}>Portfolio</a></li>
-          <li><a href="#contact" onClick={toggleNav}>Contact</a></li>
-        </ul>
-      </nav>
+    <Navbar isNavOpen={isNavOpen} toggleNav={toggleNav}/>
     </header>
   );
 }

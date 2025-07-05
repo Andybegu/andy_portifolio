@@ -43,24 +43,8 @@
   z-index: 20;
 }
 
-.main-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-}
 
-.header nav li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
 
-.header nav li a:hover {
-  color: #61dafb;
-}
 
 /* --- MEDIA QUERIES FOR TABLET & SMALLER DESKTOPS (e.g., up to 768px wide) --- */
 @media (max-width: 768px) {
@@ -87,48 +71,6 @@
     position: static; /* Remove absolute positioning, let flexbox place it */
     order: 2; /* Ensure it comes after header-left-content in flex order */
     margin-left: auto; /* Push it to the right */
-  }
-
-  .main-nav {
-    display: none; /* Hidden by default on mobile/tablet */
-    width: 100%; /* Full width */
-    background-color: #333;
-    position: absolute; /* Still absolute to slide out */
-    top: 100%;
-    left: 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    animation: fadeOut 0.3s forwards;
-    z-index: 1; /* Ensure it's below header but above general content */
-  }
-
-  .main-nav.nav-open {
-    display: flex; /* Show when open */
-    animation: fadeIn 0.3s forwards;
-  }
-
-  .main-nav ul {
-    flex-direction: column; /* Stack list items vertically */
-    width: 100%;
-    gap: 15px;
-  }
-
-  .main-nav li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .main-nav li a {
-    display: block;
-    padding: 10px 0;
-    font-size: 1.2em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .main-nav li:last-child a {
-    border-bottom: none;
   }
 }
 
