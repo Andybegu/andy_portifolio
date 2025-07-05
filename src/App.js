@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react'; // Keep React import
+import './App.css'; // Keep App-level CSS
+import Header from './components/Headr'; // <-- Import our new Header component
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header /> {/* <-- Use our Header component here */}
+      <main>
+        {/* We'll add more content here later */}
+        <p>Welcome to my personal website!</p>
+        <p>This is where my main content will go.</p>
+      </main>
+      {/* You can remove the original Create React App content from the header,
+          or keep it for now if you want to see the new header above it.
+          For a cleaner look, you can delete the original `<header className="App-header">` block
+          and everything inside it.
+          Let's keep it simple for now, and just put our Header component at the top.
+      */}
     </div>
   );
 }

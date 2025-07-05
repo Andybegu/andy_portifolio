@@ -1,0 +1,36 @@
+/* src/components/Header.css */
+
+.header {
+  background-color: #282c34; /* Dark blue/grey */
+  padding: 10px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex; /* Make the header a flex container */
+  justify-content: space-between; /* Distribute space between items (h1 and nav) */
+  align-items: center; /* Vertically align items in the center */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.header nav ul {
+  list-style: none;
+  padding-right: 100px;
+  margin: 15px 0 0 0;
+  display: flex; /* Use flexbox for horizontal navigation */
+  gap: 20px; /* Space between links */
+}
+
+.header nav li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header nav li a:hover {
+  color: #61dafb; /* React blue */
+}
