@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'; // <-- Import useState hook
 import './Header.css';
-import profile1 from '../assets/profile.jpg'; // <-- Import your profile picture
+import profile1 from '../assets/profile1.jpg'; // Adjust the path as necessary
 import Navbar from './Navbar';
 
 function Header() {

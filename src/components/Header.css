@@ -11,6 +11,7 @@
   align-items: center;
   position: relative;
   z-index: 10;
+  height: var(--header-height);
 }
 
 .header-left-content {
@@ -52,6 +53,7 @@
     flex-wrap: wrap; /* Allow items to wrap to next line */
     justify-content: space-between; /* Keep content spaced, h1/pic left, toggle right */
     padding: 15px 20px;
+    height: var(--header-height-mobile);
   }
 
   .header h1 {

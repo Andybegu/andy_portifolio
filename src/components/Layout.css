@@ -8,18 +8,18 @@
 
 .main-content {
     flex-grow: 1; /* Allows the main content to take up available space */
-    padding: 20px;
+    padding: 2px;
 }
 
 /* Basic responsive adjustments for padding */
 @media (max-width: 768px) {
     .main-content {
-        padding: 15px;
+        padding: 2px;
     }
 }
 
 @media (max-width: 480px) {
     .main-content {
-        padding: 10px;
+        padding: 5px;
     }
 }

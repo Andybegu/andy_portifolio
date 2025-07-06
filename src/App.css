@@ -2,8 +2,16 @@
 
 .App {
   text-align: center;
+   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-link {
   color: #61dafb;
 }
+:root {
+  --header-height: 80px; /* Adjust based on your header's desktop height */
+  --header-height-mobile: 60px; /* Adjust based on your header's mobile height */
+}
+
