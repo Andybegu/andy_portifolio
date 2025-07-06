@@ -1,0 +1,25 @@
+/* src/components/Layout.css */
+
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the layout takes at least the full viewport height */
+}
+
+.main-content {
+    flex-grow: 1; /* Allows the main content to take up available space */
+    padding: 20px;
+}
+
+/* Basic responsive adjustments for padding */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+}
