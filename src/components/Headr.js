@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'; // <-- Import useState hook
 import './Header.css';
-import profile from '../assets/profile.jpg'; // <-- Import your profile picture
+import profile1 from '../assets/profile.jpg'; // <-- Import your profile picture
 import Navbar from './Navbar';
 
 function Header() {
@@ -18,8 +18,8 @@ function Header() {
   return (
     <header className="header">
      <div className="header-left-content"> {/* New container for profile pic and h1 */}
-        <img src={profile} alt="Profile" className="profile-pic" /> {/* Your new image */}
-        <h1>My Personal Website</h1>
+        <img src={profile1} alt="Profile1" className="profile-pic" /> {/* Your new image */}
+        <h1>ANDUALEM,B</h1>
       </div>
       <button className="menu-toggle" onClick={toggleNav}>
         {/* You can use a simple text icon or an SVG here for now */}
