@@ -9,9 +9,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 10;
-  height: var(--header-height);
+  position: fixed; /* <-- Make the header fixed */
+  top: 0;          /* <-- Stick it to the top */
+  left: 0;         /* <-- Stick it to the left */
+  width: 100%;     /* <-- Make it span the full width */
+  z-index: 1000;   /* <-- Ensure it's above other content (high value) */
+  height: var(--header-height); /* Ensure it has a defined height */
+  transition: height 0.3s ease, padding 0.3s ease; /* Smooth transition for responsiveness */
 }
 
 .header-left-content {
@@ -40,7 +44,7 @@
   color: white;
   font-size: 2em;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 5px 40px;
   z-index: 20;
 }
 
@@ -54,6 +58,8 @@
     justify-content: space-between; /* Keep content spaced, h1/pic left, toggle right */
     padding: 15px 20px;
     height: var(--header-height-mobile);
+    position: relative; /* <-- VERY IMPORTANT for absolute positioning of children */
+    
   }
 
   .header h1 {
@@ -68,19 +74,21 @@
 
 
   .menu-toggle {
-    display: block; /* Show hamburger button on mobile/tablet */
-    /* Adjust position if needed, but relative to header's flex children */
-    position: static; /* Remove absolute positioning, let flexbox place it */
-    order: 2; /* Ensure it comes after header-left-content in flex order */
-    margin-left: auto; /* Push it to the right */
+    display: block; /* Make it VISIBLE */
+    position: absolute; /* Position it absolutely within the header */
+    right: 20px;       /* 20px from the right edge of the header */
+    top: 50%;          /* Vertically center it */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    
   }
+  
 }
 
 /* --- MEDIA QUERIES FOR SMALL MOBILE SCREENS (e.g., up to 480px wide) --- */
 @media (max-width: 480px) {
   .header {
     padding: 10px 15px; /* Reduce header padding on very small screens */
-    flex-direction: column; /* Stack h1/pic and toggle vertically on very small screens */
+
     align-items: center; /* Center items when stacked */
   }
 
@@ -102,9 +110,12 @@
   }
 
   .menu-toggle {
-    position: static; /* Remove absolute positioning if it was still there, let it flow */
-    margin: 0; /* Remove auto margin */
-    order: unset; /* Remove specific order from flexbox */
+    position: absolute; /* Re-confirm or re-apply */
+    right: 15px; /* Adjust right position for smaller screens */
+    top: 50%;
+    transform: translateY(-50%);
+    order: unset;
+    margin: 0;
   }
 
   /* The main-nav styles from 768px apply here unless overridden */

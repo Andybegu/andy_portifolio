@@ -1,0 +1,66 @@
+/* src/components/Portfolio.css */
+
+.portfolio-section {
+  background-color: #eef2f5; /* Light background for section */
+  padding: 60px 20px;
+  text-align: center;
+  color: #333;
+}
+
+.portfolio-content {
+  max-width: 1200px; /* Max width for the grid container */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.portfolio-title {
+  font-size: 3em;
+  margin-bottom: 50px;
+  color: #282c34;
+  position: relative;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.portfolio-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #61dafb; /* React blue underline */
+  border-radius: 2px;
+}
+
+.projects-grid {
+  display: grid; /* Use CSS Grid for layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 30px; /* Space between cards */
+}
+
+/* Responsive adjustments for overall portfolio section */
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: 40px 15px;
+  }
+  .portfolio-title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  .projects-grid {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-title {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 20px;
+  }
+}

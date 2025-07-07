@@ -9,17 +9,21 @@
 .main-content {
     flex-grow: 1; /* Allows the main content to take up available space */
     padding: 2px;
+    padding-top: calc(var(--header-height, 80px) + 43px); /* Header height + existing padding */
+  /* Use padding-bottom for symmetry or if you plan for a fixed footer */
+  padding-bottom: 20px;
 }
 
 /* Basic responsive adjustments for padding */
 @media (max-width: 768px) {
     .main-content {
-        padding: 2px;
+        padding: 20px;
+        padding-top: calc(var(--header-height-mobile, 60px) + 15px); 
     }
 }
 
 @media (max-width: 480px) {
     .main-content {
-        padding: 5px;
+        padding: 10px;
     }
 }
