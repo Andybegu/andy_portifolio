@@ -5,6 +5,7 @@ import bodyimage from '../assets/bodyimag2.jpg'; // Adjust the path as necessary
 import profileLarge from '../assets/profile.jpg';
 import About from './About';
 import Portfolio from './Portifolio';
+import Contact from './Contact';
 
 function Home() {
   return (
@@ -27,6 +28,7 @@ function Home() {
     </section>
     <About/>
     <Portfolio/>
+    <Contact/>
     </>
   );
 }
