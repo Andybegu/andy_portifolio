@@ -21,7 +21,7 @@ function App() {
     <Router> {/* This MUST wrap everything that needs routing */}
       <Layout> {/* Layout contains Header and the main content area */}
         <Routes> {/* Routes defines where the different components render */}
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />

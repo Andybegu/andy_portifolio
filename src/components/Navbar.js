@@ -9,7 +9,7 @@ function Navbar({ isNavOpen, toggleNav }) {
     <nav className={`main-nav ${isNavOpen ? 'nav-open' : ''}`}>
       <ul>
         <li>
-          <Link to="/home" onClick={toggleNav}>Home</Link> {/* Keep onClick here, it should be fine */}
+          <Link to="/" onClick={toggleNav}>Home</Link> {/* Keep onClick here, it should be fine */}
         </li>
         <li>
           <Link to="/about" onClick={toggleNav}>About</Link>

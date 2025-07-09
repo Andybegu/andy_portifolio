@@ -17,13 +17,8 @@ function ProjectCard({ image, title, description, technologies, liveLink, github
           ))}
         </div>
         <div className="project-links">
-          {liveLink && (
-            <a href={liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary project-btn">
-              Live Demo
-            </a>
-          )}
           {githubLink && (
-            <a href={githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-secondary project-btn">
+            <a href={githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary project-btn">
               GitHub
             </a>
           )}

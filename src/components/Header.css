@@ -3,7 +3,7 @@
 /* --- Base styles (Desktop-first approach, these are for larger screens) --- */
 .header {
   background-color: #282c34;
-  padding: 20px;
+  padding: 2px;
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -22,11 +22,12 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  padding: 20px;
 }
 
 .profile-pic {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #61dafb;
@@ -34,7 +35,8 @@
 
 .header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2em;
+  white-space: nowrap;
 }
 
 .menu-toggle {
@@ -45,7 +47,7 @@
   font-size: 2em;
   cursor: pointer;
   padding: 5px 40px;
-  z-index: 20;
+  z-index: 1001; /* Ensure it's above the header */
 }
 
 
@@ -56,23 +58,25 @@
   .header {
     flex-wrap: wrap; /* Allow items to wrap to next line */
     justify-content: space-between; /* Keep content spaced, h1/pic left, toggle right */
-    padding: 15px 20px;
+    padding: 5px 10px;
     height: var(--header-height-mobile);
-    position: relative; /* <-- VERY IMPORTANT for absolute positioning of children */
-    
+    position: relative; /* <-- VERY IMPORTANT for absolute positioning of children */ 
   }
-
+.profile-pic {
+    width: 30px;
+    height: 30px;
+  }
   .header h1 {
-    font-size: 2.2em; /* Slightly smaller on tablets */
+    font-size: 1.5em; /* Slightly smaller on tablets */
   }
 
   /* Make sure the left content behaves well */
   .header-left-content {
     flex-grow: 1; /* Allow it to take available space */
     justify-content: flex-start; /* Keep content to the left */
+    gap: 10px;
+    padding: 4px;
   }
-
-
   .menu-toggle {
     display: block; /* Make it VISIBLE */
     position: absolute; /* Position it absolutely within the header */
@@ -87,16 +91,18 @@
 /* --- MEDIA QUERIES FOR SMALL MOBILE SCREENS (e.g., up to 480px wide) --- */
 @media (max-width: 480px) {
   .header {
-    padding: 10px 15px; /* Reduce header padding on very small screens */
-
-    align-items: center; /* Center items when stacked */
+    padding: 1px 15px; /* Reduce header padding on very small screens */
+    flex-direction: row;
+    justify-content: space-between; /* Keep content spaced out */
+    align-items: center; /* Vertically center */
+    height: var(--header-height-mobile); /* Ensure consistent height */
   }
 
   .header-left-content {
-    width: 100%; /* Ensure it takes full width */
-    justify-content: center; /* Center content within this section */
-    margin-bottom: 10px; /* Space below h1/pic section */
-    gap: 10px; /* Reduce gap between pic and h1 */
+   flex-shrink: 1;
+    flex-basis: auto; /* Let content determine its base width */
+    justify-content: flex-start; /* Keep content to the left */
+    gap: 8px; /* Slightly smaller gap */
   }
 
   .profile-pic {
@@ -105,17 +111,21 @@
   }
 
   .header h1 {
-    font-size: 1.8em; /* Further reduce font size for H1 */
-    text-align: center;
+   font-size: 1.4em; /* Further reduce font size for very small screens */
+    white-space: nowrap; /* Prevent wrapping if possible, but might overflow */
+    overflow: hidden; /* Hide overflow if nowrap causes issues */
+    text-overflow: ellipsis; /* Add ellipsis if hidden */
+    max-width: 150px; /* Adjust based on typical name length to prevent pushing toggle */
   }
 
   .menu-toggle {
-    position: absolute; /* Re-confirm or re-apply */
-    right: 15px; /* Adjust right position for smaller screens */
-    top: 50%;
-    transform: translateY(-50%);
-    order: unset;
-    margin: 0;
+    display: block; /* Ensure it's still visible */
+    /* If using margin-left: auto from 768px, it will continue to work.
+       If you used position: absolute previously, ensure it's here too.
+       Let's stick with margin-left: auto for simpler flex behavior. */
+    margin-left: auto; /* Push to the right */
+    font-size: 1.8em; /* Slightly smaller icon if needed */
+    flex-shrink: 0; /* Prevent the toggle from shrinking */
   }
 
   /* The main-nav styles from 768px apply here unless overridden */
