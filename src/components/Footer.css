@@ -1,0 +1,119 @@
+/* src/components/Footer.css */
+
+.footer-section {
+  background-color: #282c34; /* Dark background, similar to header */
+  color: #f8f8f8; /* Light text color */
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid #3a3f47; /* Subtle top border */
+  display: flex; /* Use flexbox for overall footer layout */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Pushes bottom copyright to the very bottom */
+  align-items: center; /* Center content horizontally if desired */
+  padding-top: 20px; /* Adjust padding as needed */
+  padding-bottom: 20px; /* Adjust padding as needed */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 15px;
+  width: 100%; /* Make it take full width of the footer */
+  padding-bottom: 20px; /* Add some space between main content and copyright */
+  /* Add any other styling for this section */
+  
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-nav a {
+  color: #f8f8f8;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #61dafb; /* React blue on hover */
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 25px;
+  padding-right: 70px;
+}
+
+.footer-social-links a {
+  color: #f8f8f8;
+  font-size: 1.8em;
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none; /* Remove underline */
+}
+
+.footer-social-links a:hover {
+  color: #61dafb;
+  transform: translateY(-3px); /* Subtle lift effect */
+}
+
+.footer-copyright p {
+  font-size: 0.9em;
+  color: #aaa; /* Lighter color for copyright text */
+  margin: 5px 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 30px 15px;
+  }
+  .footer-nav ul {
+    gap: 20px;
+  }
+  .footer-social-links {
+    gap: 20px;
+  }
+  .footer-social-links a {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-nav ul {
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 10px;
+  }
+  .footer-nav a {
+    font-size: 1em;
+  }
+  .footer-social-links {
+    gap: 15px;
+  }
+  .footer-social-links a {
+    font-size: 1.4em;
+  }
+  .footer-copyright p {
+    font-size: 0.85em;
+  }
+}
+.footer-bottom-copyright {
+  width: 100%; /* Ensure it takes full width */
+  text-align: center; /* Center the copyright text */
+  margin-top: 10px; /* Add some space from the content above */
+  font-size: 0.9em; /* Adjust font size if needed */
+  color: #aaa; /* Adjust color if needed */
+  /* Add padding if you want more vertical spacing around the text */
+  padding-bottom: 10px; /* Add padding below the text */
+}

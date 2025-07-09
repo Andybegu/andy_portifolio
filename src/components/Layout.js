@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./Headr";
 import "./Layout.css"; // Assuming you have a Layout.css for layout styles
+import Footer from "./Footer";
+
 
 
 const Layout = ({ children }) => {
@@ -10,7 +12,7 @@ const Layout = ({ children }) => {
       <main className="main-content">
         {children}
       </main>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 };

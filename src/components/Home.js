@@ -7,6 +7,7 @@ import About from './About';
 import Portfolio from './Portifolio';
 import Contact from './Contact';
 
+
 function Home() {
   return (
     <>
